@@ -27,16 +27,16 @@ jobs:
     - name: Add GGroupp NuGet Source
       run: dotnet nuget add source ${{ secrets.GGROUPP_NUGET_SOURCE_URL }} -n ggroupp -u ${{ secrets.GGROUPP_NUGET_SOURCE_USER_NAME }} -p ${{ secrets.GGROUPP_NUGET_SOURCE_USER_PASSWORD }} --store-password-in-clear-text
 
-    # Queue.Abstractions
+    # Queue.Api.Abstractions
 
-    - name: Restore Queue.Abstractions
-      run: dotnet restore ./src/*/Queue.Abstractions.csproj
+    - name: Restore Queue.Api.Abstractions
+      run: dotnet restore ./src/*/Queue.Api.Abstractions.csproj
 
-    - name: Build Queue.Abstractions
-      run: dotnet build ./src/*/Queue.Abstractions.csproj --no-restore  -c Release
+    - name: Build Queue.Api.Abstractions
+      run: dotnet build ./src/*/Queue.Api.Abstractions.csproj --no-restore  -c Release
 
-    - name: Pack Queue.Abstractions
-      run: dotnet pack ./src/*/Queue.Abstractions.csproj --no-restore -o ~/nuget  -c Release
+    - name: Pack Queue.Api.Abstractions
+      run: dotnet pack ./src/*/Queue.Api.Abstractions.csproj --no-restore -o ~/nuget  -c Release
 
     # Queue.Api
 
