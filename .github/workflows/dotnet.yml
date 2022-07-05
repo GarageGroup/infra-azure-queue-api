@@ -49,6 +49,17 @@ jobs:
     - name: Pack Queue.Api
       run: dotnet pack ./src/*/Queue.Api.csproj --no-restore -o ~/nuget  -c Release
 
+    # Queue.ServiceBus.Api
+
+    - name: Restore Queue.ServiceBus.Api
+      run: dotnet restore ./src/*/Queue.ServiceBus.Api.csproj
+
+    - name: Build Queue.ServiceBus.Api
+      run: dotnet build ./src/*/Queue.ServiceBus.Api.csproj --no-restore  -c Release
+
+    - name: Pack Queue.ServiceBus.Api
+      run: dotnet pack ./src/*/Queue.ServiceBus.Api.csproj --no-restore -o ~/nuget  -c Release
+
     # Push
 
     - name: Push Packages
